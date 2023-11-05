@@ -2,21 +2,34 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import "./animation.css";
+import { ArtTypes } from "../types/data";
+import location from "../assets/location.svg";
 
 export default function Map() {
+  const [data, setData] = useState<ArtTypes[]>([]);
   const mapRef = useRef<HTMLInputElement>(null);
-  const [map, setMap] = useState(null);
-  const [marker, setMarker] = useState<any>([]);
+  const [map, setMap] = useState<any>();
+  const [markers, setMarkers] = useState<any>([]);
+  const [isShowMenu, setIsShowMenu] = useState(false);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/api")
+      .then((res) => res.json())
+      .then((data) => setData(data.artList));
+  }, []);
 
   useEffect(() => {
     const { naver } = window;
     if (mapRef.current && naver) {
-      const location = new naver.maps.LatLng(37.5103947, 127.0611127);
+      const location = new naver.maps.LatLng(37.3595704, 127.105399);
+      const sw = new naver.maps.LatLng(37.4533862, 126.8025048);
+      const ne = new naver.maps.LatLng(37.6599625, 127.1719201);
       const map = new naver.maps.Map(mapRef.current, {
         center: location,
         zoom: 14,
         minZoom: 12,
         maxZoom: 16,
+        maxBounds: new naver.maps.LatLngBounds(sw, ne),
         disableKineticPan: false,
         mapDataControl: false,
         scaleControl: false,
@@ -27,11 +40,21 @@ export default function Map() {
   }, []);
 
   useEffect(() => {
-    if (map) {
+    const { naver } = window;
+    if (map && data.length !== 0) {
+      // marker api 코드
+      let tempMarkers = [];
+      for (let item of data) {
+        const marker = new naver.maps.Marker({
+          position: new naver.maps.LatLng(item.LOT, item.LAT),
+          map: map,
+          // icon: location,
+        });
+        tempMarkers.push(marker);
+      }
+      setMarkers(tempMarkers);
     }
-  }, [map]);
-
-  const [isShowMenu, setIsShowMenu] = useState(true);
+  }, [map, data]);
 
   return (
     <div className="w-full h-[100vh]">

@@ -29,7 +29,10 @@ export default function RootLayout({
           src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=<%=process.env.NEXT_PUBLIC_MAP_CLIENT_ID%>"
         ></script>
       </head>
-      <body>{children}</body>
+      <body>
+        <NavBar />
+        {children}
+      </body>
     </html>
   );
 }

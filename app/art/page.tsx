@@ -1,25 +1,14 @@
-import { ArtTypes } from "../types/data";
+// import { ArtTypes } from "../types/data";
 
 export default async function Art() {
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
-
-  const res = await fetch(API_URL);
-  const result = await res.json();
-  const data = await result.culturalEventInfo.row;
-
-  const artList: ArtTypes[] = [];
-
-  for (let el of data) {
-    const currentDate = new Date();
-    const artEndDate = new Date(el.END_DATE.slice(0, 10));
-    if (artEndDate >= currentDate) {
-      artList.push(el);
-    }
-  }
+  // const res = await fetch("http://localhost:3000/api");
+  // const result = await res.json();
+  // const data = await result.artList;
 
   return (
     <div>
-      {artList.map((item: ArtTypes, index: number) => (
+      hello world
+      {/* {data.map((item: ArtTypes, index: number) => (
         <div key={index}>
           {item.TITLE}
           <div>
@@ -29,7 +18,7 @@ export default async function Art() {
             />
           </div>
         </div>
-      ))}
+      ))} */}
     </div>
   );
 }
