@@ -1,4 +1,4 @@
-import { ArtTypes } from "../types/data";
+import { ArtTypes } from "../component/types/data";
 
 export async function GET() {
   const API_URL = process.env.NEXT_PUBLIC_API_URL || "";

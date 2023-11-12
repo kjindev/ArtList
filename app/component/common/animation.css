@@ -16,11 +16,8 @@
 
 .book .bookCover {
   z-index: 10;
-  background-color: rgb(248, 248, 248);
   display: flex;
   border-radius: 6px;
-  width: 200px;
-  height: 240px;
   transition: transform 0.5s ease-in-out;
   transform: perspective(300px) rotateY(0deg);
   padding-right: 20px;
@@ -45,8 +42,6 @@
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
   background-color: white;
-  width: 20px;
-  height: 240px;
   transition: transform 0.5s ease-in-out;
   transform: perspective(300px) rotateY(90deg) translateX(20px);
 }
@@ -59,13 +54,13 @@
 .book .bookBack {
   position: absolute;
   right: 0;
-  background-color: rgb(248, 248, 248);
   border-radius: 6px;
   width: 200px;
   height: 230px;
   transition: transform 0.5s ease-in-out;
   transform: perspective(300px) rotateY(0deg);
   padding-right: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.23);
 }
 
 .book:hover .bookBack {

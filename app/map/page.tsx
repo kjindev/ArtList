@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import "./animation.css";
-import { ArtTypes } from "../types/data";
+import { ArtTypes } from "../component/types/data";
 import location from "../assets/location.svg";
 
 export default function Map() {
