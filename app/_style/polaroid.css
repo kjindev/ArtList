@@ -1,0 +1,5 @@
+.polaroid:hover {
+  cursor: pointer;
+  transition: transform 0.5s ease-in-out;
+  transform: rotate(6deg);
+}

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import "./animation.css";
+import "../_style/book.css";
 
 interface DataType {
   width: number;

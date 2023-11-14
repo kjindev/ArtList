@@ -7,18 +7,21 @@ export default function NavBar() {
 
   if (pathname === "/") {
     return (
-      <div className="fixed w-full px-5 pt-4 pb-3 shadow bg-white flex justify-between items-center">
+      <div className="z-[100] fixed w-full px-[15%] pt-4 pb-3 shadow-sm bg-white flex justify-between items-center">
         <div className="titleFont hover:cursor-pointer text-xl tracking-tight mr-2">
           <p>서울, 오늘의 문화</p>
         </div>
         <div className="text-sm flex">
-          <p className="mr-4 hover:cursor-pointer hover:text-cyan-600">소개</p>
-          <p className="mr-4 hover:cursor-pointer hover:text-cyan-600">
+          <a href="#intro" className="mr-4">
+            소개
+          </a>
+          <a href="#now" className="mr-4">
             요즘 전시
-          </p>
-          <p className="hover:cursor-pointer hover:text-cyan-600">
-            지도로 찾기
-          </p>
+          </a>
+          <a href="#stage" className="mr-4">
+            요즘 공연
+          </a>
+          <a href="#location">지도로 찾기</a>
         </div>
       </div>
     );
