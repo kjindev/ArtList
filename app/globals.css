@@ -18,7 +18,9 @@
   font-style: normal;
 }
 
+html,
 body {
+  scroll-behavior: smooth;
   font-family: "SUIT-Regular";
 }
 
