@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import "./animation.css";
-import { ArtTypes } from "../component/types/data";
+import { ArtTypes } from "../_types/data";
 import location from "../assets/location.svg";
 
 export default function Map() {
@@ -58,7 +58,7 @@ export default function Map() {
 
   return (
     <div className="w-full h-[100vh]">
-      <div className="z-10 fixed flex justify-bewteen items-center w-[100%] p-5">
+      {/* <div className="z-10 fixed flex justify-bewteen items-center w-[100%] p-5">
         <Link
           href="/"
           className="w-[10%] bg-white p-3 rounded-xl shadow-md text-sm mx-2 text-center hover:bg-slate-100 "
@@ -81,6 +81,13 @@ export default function Map() {
         <div className="flex flex-col items-center mt-4">
           <div className="w-[80px] h-[5px] bg-gray-300 rounded-full"></div>
         </div>
+      </div> */}
+      <div className="bg-white w-[360px] h-[100vh] fixed z-[30] shadow-md">
+        <Link href="/">
+          서울, 오늘의 문화{" "}
+          <span className="bg-gray-200 px-3 py-2 text-sm rounded-xl">홈</span>
+        </Link>
+        <div>추천해요!</div>
       </div>
       <div
         onClick={() => setIsShowMenu(false)}
