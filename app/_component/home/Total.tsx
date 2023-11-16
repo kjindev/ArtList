@@ -3,7 +3,7 @@
 import Link from "next/link";
 import React, { useEffect } from "react";
 import MapIcon from "../../_common/MapIcon";
-import { atom, useRecoilState, useSetRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { artDataState } from "@/app/_state/state";
 import { getArtData } from "@/app/_utils/useData";
 

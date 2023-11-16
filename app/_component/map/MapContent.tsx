@@ -2,8 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import { ArtTypes } from "../../_types/data";
-import { useRecoilState } from "recoil";
-import { artDataState } from "../../_state/state";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { artDataState, infoWindowData } from "../../_state/state";
 import { getArtData } from "../../_utils/useData";
 import "../../_style/css/mapContent.css";
 
@@ -13,9 +13,11 @@ export default function MapContent() {
   const [markers, setMarkers] = useState<any>([]);
   const [artData, setArtData] = useRecoilState(artDataState);
   const [artList, setArtList] = useState<ArtTypes[] | null>(null);
-  const { naver } = window;
+
+  const setInfoWindowData = useSetRecoilState(infoWindowData);
 
   useEffect(() => {
+    const { naver } = window;
     if (naver) {
       const location = new naver.maps.LatLng(37.3595704, 127.105399);
       const sw = new naver.maps.LatLng(37.4533862, 126.8025048);
@@ -33,9 +35,10 @@ export default function MapContent() {
       });
       setMap(map);
     }
-  }, [naver]);
+  }, []);
 
   useEffect(() => {
+    const { naver } = window;
     if (!artData) {
       getArtData().then((data) => {
         setArtData(data);
@@ -73,6 +76,7 @@ export default function MapContent() {
   }, [map, artList]);
 
   useEffect(() => {
+    const { naver } = window;
     if (markers.length !== 0) {
       markers.map((marker: any) => {
         const content = `<div id="container">
@@ -89,6 +93,18 @@ export default function MapContent() {
         });
 
         naver.maps.Event.addListener(marker, "click", function (e: any) {
+          setInfoWindowData({
+            DATE: marker.DATE,
+            END_DATE: marker.END_DATE,
+            GUNAME: marker.GUNAME,
+            IS_FREE: marker.IS_FREE,
+            MAIN_IMG: marker.MAIN_IMG,
+            ORG_LINK: marker.ORG_LINK,
+            ORG_NAME: marker.ORG_NAME,
+            PLACE: marker.PLACE,
+            TITLE: marker.TITLE,
+          });
+          // setInfoWindowData
           if (infowindow.getMap()) {
             infowindow.close();
           } else {
