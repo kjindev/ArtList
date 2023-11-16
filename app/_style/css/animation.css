@@ -46,3 +46,29 @@
   border-bottom: 87px solid #3498db;
   transform: rotate(60deg) rotateX(-20deg);
 }
+
+.menuUp {
+  animation: menuUp 0.7s ease-in-out forwards;
+}
+
+@keyframes menuUp {
+  0% {
+    transform: translate(0, 85%);
+  }
+  100% {
+    transform: translate(0, 0%);
+  }
+}
+
+.menuDown {
+  animation: menuDown 0.7s ease-in-out forwards;
+}
+
+@keyframes menuDown {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(0, 85%);
+  }
+}
