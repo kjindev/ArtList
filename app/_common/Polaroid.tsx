@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import "../_style/polaroid.css";
+import "../_style/css/polaroid.css";
 
 interface DataType {
   children: any;

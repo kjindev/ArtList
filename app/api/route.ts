@@ -1,12 +1,10 @@
 import { ArtTypes } from "../_types/data";
 
 export async function GET() {
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
+  const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
   const res = await fetch(API_URL);
-
   const result = await res.json();
   const data = await result.culturalEventInfo.row;
-
   const artList: ArtTypes[] = [];
 
   for (let el of data) {
@@ -17,5 +15,5 @@ export async function GET() {
     }
   }
 
-  return Response.json({ artList });
+  return Response.json(artList);
 }

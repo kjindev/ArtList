@@ -15,12 +15,16 @@
 }
 
 .book .bookCover {
+  background: linear-gradient(to bottom right, #57a3f2, #3c86ec);
   z-index: 10;
   display: flex;
-  border-radius: 3px;
+  border-radius: 12px;
   transition: transform 0.5s ease-in-out;
   transform: perspective(300px) rotateY(0deg);
   padding-right: 20px;
+  display: flex;
+  justify-content: center;
+  padding: 18px;
 }
 
 .book:hover .bookCover {
@@ -29,19 +33,31 @@
 }
 
 .book .bookCover .binder {
-  width: 10%;
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
+  width: 15%;
+  /* box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1); */
+  box-shadow: inset 2px 2px 7px rgba(0, 0, 0, 0.2);
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
 }
 
+.book .title {
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(
+    to bottom right,
+    rgb(142, 189, 47),
+    rgb(119, 161, 35)
+  );
+  border-radius: 12px;
+  box-shadow: inset 2px 2px 7px rgba(255, 255, 255, 0.2),
+    2px 2px 6px rgba(0, 0, 0, 0.2);
+}
 .book .bookSide {
   z-index: 5;
   position: absolute;
   right: 0;
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
-  /* background-color: white; */
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
   background: linear-gradient(to left, white, #e2e2e2a7);
   transition: transform 0.5s ease-in-out;
   transform: perspective(300px) rotateY(90deg) translateX(20px);
@@ -55,7 +71,7 @@
 .book .bookBack {
   position: absolute;
   right: 0;
-  border-radius: 6px;
+  border-radius: 12px;
   width: 200px;
   height: 230px;
   transition: transform 0.5s ease-in-out;
