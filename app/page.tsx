@@ -1,6 +1,6 @@
+import SearchForm from "./_common/SearchForm";
+import Category from "./_component/home/Category";
 import { Total } from "./_component/home/Total";
-import { ArtNow } from "./_component/home/ArtNow";
-import { StageNow } from "./_component/home/StageNow";
 
 // async function getData() {
 //   const url = process.env.NEXT_PUBLIC_API_URL ?? "";
@@ -12,15 +12,25 @@ import { StageNow } from "./_component/home/StageNow";
 export default async function Home() {
   return (
     <div className="flex flex-col justify-center items-center">
-      <div id="total">
-        <Total />
+      <div className="flex flex-col  justify-center items-center">
+        {/* <div className="w-full pc:w-[900px]  flex justify-between items-center"> */}
+        <div>
+          <Total />
+        </div>
+        <div>
+          <Category />
+        </div>
+        {/* <MapContent2 /> */}
+        {/* <ArtDetailContent /> */}
+        {/* </div> */}
       </div>
-      <div id="artNow">
+
+      {/* <div id="artNow">
         <ArtNow />
       </div>
       <div id="stageNow">
         <StageNow />
-      </div>
+      </div> */}
     </div>
   );
 }

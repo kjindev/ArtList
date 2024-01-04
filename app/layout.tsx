@@ -25,9 +25,9 @@ export default function RootLayout({
           strategy="beforeInteractive"
           src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_MAP_CLIENT_ID}`}
         />
-        <footer className="w-[100%] h-[240px] flex justify-center items-center bg-slate-700 text-[#ffffff90]">
+        {/* <footer className="w-[100%] h-[240px] flex justify-center items-center bg-slate-700 text-[#ffffff90]">
           hello world
-        </footer>
+        </footer> */}
       </body>
     </html>
   );

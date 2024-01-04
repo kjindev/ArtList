@@ -7,7 +7,7 @@ import { artDataState, infoWindowData } from "../../_state/state";
 import { getArtData } from "../../_utils/useData";
 import "../../_style/css/mapContent.css";
 
-export default function MapContent() {
+export default function MapContent2() {
   const mapRef = useRef<HTMLInputElement>(null);
   const [map, setMap] = useState<any>(null);
   const [markers, setMarkers] = useState<any>([]);
@@ -115,10 +115,5 @@ export default function MapContent() {
     }
   }, [markers]);
 
-  return (
-    <div
-      ref={mapRef}
-      className="w-[600px] h-[500px] rounded-md shadow-md"
-    ></div>
-  );
+  return <div ref={mapRef} className="w-full h-[100vh]"></div>;
 }
